@@ -24,6 +24,7 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 
 ## Stay Consistent with Established Styles
 
+* Take a look at our [template file](./template.md) when making additions.
 * 4 spaces for indentation rather than tabs
 
 ## License
