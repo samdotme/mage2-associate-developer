@@ -17,3 +17,12 @@ These exercises aim to give a general starting point for studying and preparing 
 1. Developing with Adminhtml (11%)
 
 1. Customizing Magento Business Logic (16%)
+
+### Want to Correct an Error? Clarify an explanation?
+
+PRs welcome! Feel free to PR and edit/add questions and solutions, but please stick to the existing format. Also, please read our [Code of Conduct](./CODE_OF_CONDUCT.md) and [Contributing Guidelines](./CONTRIBUTING.md).
+
+### Inspiration
+
+The idea of this study guide came from the wonderful [CKAD Kubernetes Exercises](https://github.com/dgkanatsios/CKAD-exercises) repo from [dgkanatsios](https://github.com/dgkanatsios).
+
