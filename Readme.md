@@ -6,7 +6,7 @@ These exercises aim to give a general starting point for studying and preparing 
 
 ## Contents
 
-1. Magento Architecture and Customization Techniques (33%)
+1. [Magento Architecture and Customization Techniques](./architecture-and-customization.md) (33%)
     
 1. Request Flow Processing (7%)
     
