@@ -202,7 +202,27 @@ Sources:
 <summary>show</summary>
 <p>
 
-Answer here
+```php
+use \Magento\Framework\App\Config\ScopeConfigInterface;
+
+ScopeConfigInterface $scopeConfig;
+
+class MyClass
+{
+    public function __construct(
+        ScopeConfigInterface $scopeConfig,
+    ) {
+        $this->_scopeConfig = $scopeConfig;
+    }
+     
+     
+    public function configDataUseFunction(){
+       $showTemplateHint =  $this->_scopeConfig->getValue('dev/debug/template_hints', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+}
+```
+
+Source: http://magehelper.blogspot.com/2015/06/get-system-config-values-in-magento-2.html
 
 </p>
 </details>
@@ -213,7 +233,14 @@ Answer here
 <summary>show</summary>
 <p>
 
-Answer here
+You can add this using the <stores> node in your config.xml as follows.
+
+```xml
+<stores>
+    <store_code>
+```
+
+Source: https://magento.stackexchange.com/a/45654/80272
 
 </p>
 </details>
