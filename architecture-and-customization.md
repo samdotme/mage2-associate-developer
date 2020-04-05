@@ -70,7 +70,7 @@ Modules are named in the form of `Vendor_ComponentName`.
 
 Classes are named with `_` to denote file tree location. For example `Mage_Catalog_Model_Product` class is located in `/app/code/core/Mage/Catalog/Model/Product.php`.
 
-Magento autoloader replaces all underscore characters (‘_’) with the category separator (‘/’) and looks for the file in one of the following categories:
+Magento autoloader replaces all underscore characters `_` with the category separator `/` and looks for the file in one of the following categories:
 - `/app/code/core`
 - `/app/code/community`
 - `/app/code/local`
@@ -124,6 +124,96 @@ Additional folders can be added for configuration and other ancillary functions 
 - `Plugin`: contains any needed [plug-ins](/guides/v2.3/extension-dev-guide/plugins.html).
 - `UI`: contains data generation files.
 - `view`: contains view files, including static view files, design templates, email templates, and layout files.
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/module-file-structure.html
+
+</p>
+</details>
+
+### 1.3 Utilize configuration and configuration variables scope
+
+####  Which configuration files are important in the development cycle?
+
+<details>
+<summary>show</summary>
+<p>
+
+Use `/etc` for your configuration files.
+
+Your module will certainly use `module.xml`.
+
+You may also use one or more of the following, depending on what your module does:
+```
+acl.xml
+config.xml
+di.xml
+module.xml
+webapi.xml
+```
+
+The top level folder configurations in `/etc` will be applied globally to your module.
+
+Note that there are also nested configuration files which could reside in any of the following folders:
+```
+/etc/adminhtml/
+/etc/frontend/
+/etc/webapi_rest/
+/etc/webapi_soap/
+```
+
+Anything in a nested folder will override any global settings for that particular area.
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/required-configuration-files.html
+
+</p>
+</details>
+
+####  How do you identify the configuration scope for a given variable?
+
+<details>
+<summary>show</summary>
+<p>
+
+Unless the store is running in Single Store Mode, the scope of each configuration setting appears in small text below the field label.
+
+Source: https://docs.magento.com/m2/ce/user_guide/configuration/scope.html
+
+</p>
+</details>
+
+####  How do native Magento scopes (for example, price or inventory) affect development and decision-making processes?
+
+<details>
+<summary>show</summary>
+<p>
+
+Native Magento scopes, for example on products and on prices, can be set either at a global level, or at a website level. This is important to understand from the beginning architectural decisions, whether the installation will be multi-site, and whether different websites will need different base currencies or prices.
+
+Sources:
+- https://docs.magento.com/m2/ce/user_guide/catalog/product-scope.html
+- https://docs.magento.com/m2/ce/user_guide/catalog/catalog-price-scope.html
+
+</p>
+</details>
+
+####  How can you fetch a system configuration value programmatically? 
+
+<details>
+<summary>show</summary>
+<p>
+
+Answer here
+
+</p>
+</details>
+
+####  How can you override system configuration values for a given store using XML configuration?
+
+<details>
+<summary>show</summary>
+<p>
+
+Answer here
 
 </p>
 </details>
