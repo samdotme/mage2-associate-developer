@@ -244,3 +244,117 @@ Source: https://magento.stackexchange.com/a/45654/80272
 
 </p>
 </details>
+
+### 1.4 Demonstrate how to use dependency injection (DI)
+
+####  How are objects realized in code?
+
+<details>
+<summary>show</summary>
+<p>
+
+Objects are realized in code via constructor injection.
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/depend-inj.html#constructor-injection
+
+If an object cannot be injected directly, a factory can be injected to create the object.
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/depend-inj.html#newablenon-injectable
+
+</p>
+</details>
+
+####  Why is it important to have a centralized object creation process?
+
+<details>
+<summary>show</summary>
+<p>
+
+There are several benefits:
+- Avoid boilerplate code while instantiating objects.
+- Allow for clear overrides and dependency relationships without resorting to extending classes.
+- Allow for creation of singleton objects.
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/object-manager.html
+
+</p>
+</details>
+
+####  How can you override a native class, inject your class into another object, and use other techniques available in `di.xml` (for example, `virtualTypes`)?
+
+<details>
+<summary>show</summary>
+<p>
+
+You can specify **class constructor arguments** for a given instantiated class. In the following example, every instance of type `Magento\Core\Model\Session` will receive an argument value of `adminhtml` for the parameter `sessionName`.
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Core\Model\Session">
+        <arguments>
+            <argument name="sessionName" xsi:type="string">adminhtml</argument>
+        </arguments>
+    </type>
+</config>
+```
+
+Virtual Types allow you to specify object creation instructions, prior to passing them as an argument to another object being instantiated.
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="moduleConfig" type="Magento\Core\Model\Config">
+        <arguments>
+            <argument name="type" xsi:type="string">system</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Core\Model\App">
+        <arguments>
+            <argument name="config" xsi:type="object">moduleConfig</argument>
+        </arguments>
+    </type>
+</config>
+```
+
+Source: https://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/di-xml-file.html
+
+</p>
+</details>
+
+####  Question?
+
+<details>
+<summary>show</summary>
+<p>
+
+Answer here
+
+Source: [web address]
+
+</p>
+</details>
+
+####  Question?
+
+<details>
+<summary>show</summary>
+<p>
+
+Answer here
+
+Source: [web address]
+
+</p>
+</details>
+
+####  Question?
+
+<details>
+<summary>show</summary>
+<p>
+
+Answer here
+
+Source: [web address]
+
+</p>
+</details>
